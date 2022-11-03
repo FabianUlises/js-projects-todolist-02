@@ -5,6 +5,9 @@
     box-sizing: border-box;
 }
 /* Start of global styles */
+:root {
+    --light-font-color:var(--light-font-color);
+}
 input, button {
     appearance: none;
     border: none;
@@ -31,7 +34,7 @@ header {
 header h1 {
     font-size: 2.5rem;
     font-weight: 300;
-    color: lightslategray;
+    color: var(--light-font-color);
     margin-bottom: 1rem;
 }
 .task-group-add {
@@ -44,7 +47,7 @@ header h1 {
     padding: 1rem;
     border-radius: 1rem;
     margin-right: 1rem;
-    color: lightslategray;
+    color: var(--light-font-color);
     font-size: 1.25rem;
 }
 #new-task::placeholder {
@@ -76,13 +79,14 @@ main {
     max-width: 800px;
     margin: 0 auto;
 }
+/* Start of task section */
 .task-list {
     padding: 1rem;
 }
 .task-list h2 {
     font-size: 1.5rem;
     font-weight: 300;
-    color: lightslategray;
+    color: var(--light-font-color);
     margin-bottom: 1rem;
 }
 .task {
@@ -103,6 +107,7 @@ main {
 .task-content .task-text:not(:read-only) {
     color: red;
 }
+/* Start of button styles */
 .task-actions {
     display: flex;
 }
@@ -129,4 +134,6 @@ main {
 .task-actions .delete {
     color: red;
 }
+/* End of button styles */
+/* End of task section */
 /* End of page content */
