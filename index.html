@@ -9,19 +9,49 @@
     <title>Todos</title>
 </head>
 <body>
-    <section class="task-list">
-        <h2>Todo List</h2>
-        <div class="tasks-Ctn">
-            <div class="task-form">
-                <div class="form-input">
-                    <input type="text" class="text-input" value="Shine my shoes" readonly />
-                </div>
-                <div class="form-actions">
-                    <button class="edit">Edit</button>
-                    <button class="delete">Delete</button>
-                </div>
-            </div>
+    <!-- Start of page header -->
+    <header>
+        <!-- Page title -->
+        <h1>Todo List 2022</h1>
+        <!-- Start of task form group to add new task -->
+        <div class="task-group-add">
+            <!-- Form input -->
+            <input type="text" id="new-task" placeholder="Like Nike says 'Just Do It.'">
+            <!-- Form button -->
+            <button type="submit" id="new-taskBtn">Add task</button>
         </div>
-    </section>
+        <!-- End of task form group -->
+    </header>
+    <!-- End of page header -->
+    <!-- Start of page content -->
+    <main>
+        <!-- Start of task list section -->
+        <section class="task-list">
+            <!-- Section title -->
+            <h2>Tasks</h2>
+            <!-- Start of single task -->
+            <div class="tasks-Ctn">
+                <!-- Start of task task group to display task content  -->
+                <div class="task-group">
+                    <!--  -->
+                    <div class="task-input">
+                        <!--  -->
+                        <input type="text" class="task-text" value="Shine my shoes" readonly />
+                    </div>
+                    <!--  -->
+                    <!--  -->
+                    <div class="form-actions">
+                        <button class="edit">Edit</button>
+                        <button class="delete">Delete</button>
+                    </div>
+                    <!--  -->
+                </div>
+                <!-- End of task content -->
+            </div>
+            <!-- End of single task -->
+        </section>
+        <!-- End of task list section -->
+    </main>
+    <!-- End of page content -->
 </body>
 </html>
