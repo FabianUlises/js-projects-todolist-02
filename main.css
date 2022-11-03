@@ -4,6 +4,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* Start of global styles */
+input, button {
+    appearance: none;
+    border: none;
+    background: none;
+    outline: none;
+}
+/* End global styles */
 body {
     display: flex;
     flex-direction: column;
@@ -25,5 +33,38 @@ header h1 {
     font-weight: 300;
     color: lightslategray;
     margin-bottom: 1rem;
+}
+.task-group-add {
+    display: flex;
+}
+/* Task input */
+#new-task {
+    flex: 1 1 0%;
+    background-color: rgb(39, 53, 53);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: lightslategray;
+    font-size: 1.25rem;
+}
+#new-task::placeholder {
+    color: gray;
+}
+/* New task button */
+#new-taskBtn {
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(to right, rgb(81, 148, 101), rgb(96, 209, 43));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: all 250ms ease;
+}
+#new-taskBtn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+#new-taskBtn:active {
+    opacity: 0.6;
 }
 /* End of page header styles */
