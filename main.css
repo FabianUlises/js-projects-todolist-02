@@ -40,7 +40,7 @@ header h1 {
 /* Task input */
 #new-task {
     flex: 1 1 0%;
-    background-color: rgb(39, 53, 53);
+    background-color: rgba(26, 56, 100, 0.445);
     padding: 1rem;
     border-radius: 1rem;
     margin-right: 1rem;
@@ -68,3 +68,65 @@ header h1 {
     opacity: 0.6;
 }
 /* End of page header styles */
+/* Start of page content */
+main {
+    flex: 1 1 0%;
+    padding: 2rem 1rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.task-list {
+    padding: 1rem;
+}
+.task-list h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: lightslategray;
+    margin-bottom: 1rem;
+}
+.task {
+    display: flex;
+    justify-content: space-between;
+    background-color: darkgrey;
+    padding:1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+.task-text {
+    color: aquamarine;
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+    transition: all 400ms ease;
+}
+.task-content .task-text:not(:read-only) {
+    color: red;
+}
+.task-actions {
+    display: flex;
+}
+.task-actions button {
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 200;
+    text-decoration: uppercase;
+    transition: all 250ms ease;
+}
+.task-actions button:hover {
+    opacity: 0.8;
+}
+.task-actions:active {
+    opacity: 0.6;
+}
+.task-actions .edit {
+    background: linear-gradient(rgb(63, 125, 55), purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.task-actions .delete {
+    color: red;
+}
+/* End of page content */
