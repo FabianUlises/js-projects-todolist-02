@@ -3,7 +3,7 @@ const taskCtn = document.querySelector('.task-list');
 const addTaskBtn = document.querySelector('#new-taskBtn');
 const taskInput  = document.querySelector('#new-task');
 const button = document.querySelector('.edit');
-// Saving task to localstorage
+// Save task to localstorage
 const saveLocalTasks = (task) => {
     // Initialize tasks
     let tasks;
@@ -21,6 +21,19 @@ const saveLocalTasks = (task) => {
     // Update localstorage with new task
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
+// Delete task from localstorage
+const deleteLocalTask = (task) => {
+    let tasks;
+    if(localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    const taskIndex = task.value;
+    tasks.splice(tasks.indexOf(taskIndex), 1);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+// Load localstorage tasks
 const loadLocalTasks = () => {
     let tasks;
     if(localStorage.getItem('tasks') === null) {
@@ -74,12 +87,14 @@ const loadLocalTasks = () => {
             }
         });
         // Adding event handling to delete button
-        task_delete_el.addEventListener('click', () => {
+        task_delete_el.addEventListener('click', (e) => {
             // Remove task from task container
-            taskCtn.removeChild(task_el)
+            taskCtn.removeChild(task_el);
+            deleteLocalTask(task_input_el);
         });
     })
 }
+// Function to create task with enter keypress
 const createTask = (e) => {
     if(e.keyCode == 13) {
         // Returning if input value is empty
@@ -134,17 +149,22 @@ const createTask = (e) => {
             }
         });
         // Adding event handling to delete button
-        task_delete_el.addEventListener('click', () => {
+        task_delete_el.addEventListener('click', (e) => {
+            console.log(e.target);
             // Remove task from task container
             taskCtn.removeChild(task_el)
+            deleteLocalTask(task_input_el);
         });
     }
 }
+// Start of eventListeners
+// Load localstorage data on page load
 document.addEventListener('DOMContentLoaded', loadLocalTasks);
+// Listening to enter keypress on task input
 taskInput.addEventListener('keyup', (e) => {
     createTask(e);
 });
-// Adding event handling to add task button
+// Listening to click on add task button
 addTaskBtn.addEventListener('click', () => {
     // Returning if input value is empty
     if(!taskInput.value || taskInput.value === ' ') {
@@ -200,6 +220,7 @@ addTaskBtn.addEventListener('click', () => {
     // Adding event handling to delete button
     task_delete_el.addEventListener('click', () => {
         // Remove task from task container
-        taskCtn.removeChild(task_el)
+        taskCtn.removeChild(task_el);
+        deleteLocalTask(task_input_el);
     });
 });
