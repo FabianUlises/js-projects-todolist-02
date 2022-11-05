@@ -68,7 +68,8 @@ header h1 {
     cursor: pointer;
 }
 #new-taskBtn:active {
-    opacity: 0.6;
+    color: white;
+    opacity: 1;
 }
 /* End of page header styles */
 /* Start of page content */
@@ -83,7 +84,7 @@ main {
     padding: 1rem;
 }
 .task-list h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 300;
     color: var(--light-font-color);
     margin-bottom: 1rem;
@@ -95,6 +96,7 @@ main {
     padding:1rem;
     border-radius: 1rem;
     margin-bottom: 1rem;
+    transition: all 250ms ease;
 }
 .task:hover, .task input:hover{
     cursor: pointer;
@@ -125,20 +127,23 @@ main {
     text-decoration: uppercase;
     transition: all 250ms ease;
 }
-.task-actions button:hover {
-    opacity: 0.8;
-}
-.task-actions:active {
-    opacity: 0.6;
-}
 .task-actions .edit {
-    background: linear-gradient(rgb(63, 125, 55), purple);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: rgba(255, 255, 0, 0.671);
+}
+.task-actions .edit:hover {
+    color: rgba(255, 255, 0, 0.308);
 }
 .task-actions .delete {
     color: red;
+}
+.task-actions .delete:hover {
+    color: firebrick;
+}
+.task-actions .delete:active {
+    color: black;
+}
+.task-actions .edit:active {
+    color: yellow;
 }
 /* End of button styles */
 /* End of task section */

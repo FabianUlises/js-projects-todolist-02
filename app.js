@@ -3,6 +3,16 @@ const taskCtn = document.querySelector('.task-list');
 const addTaskBtn = document.querySelector('#new-taskBtn');
 const taskInput  = document.querySelector('#new-task');
 const button = document.querySelector('.edit');
+const saveLocalTasks = (task) => {
+    let tasks;
+    if(localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    tasks.push(task);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
 const createTask = (e) => {
     if(e.keyCode == 13) {
         // Returning if input value is empty
@@ -19,6 +29,8 @@ const createTask = (e) => {
         task_input_el.type = 'text';
         task_input_el.setAttribute('readonly', 'readonly');
         task_input_el.value = taskInput.value;
+        // Saveing task to localstorage
+        saveLocalTasks(taskInput.value);
         task_content_el.appendChild(task_input_el);
         task_el.appendChild(task_content_el);
         const task_action_el = document.createElement('div');
@@ -65,7 +77,7 @@ taskInput.addEventListener('keyup', (e) => {
     createTask(e);
 });
 // Adding event handling to add task button
-addTaskBtn.addEventListener('click', (e) => {
+addTaskBtn.addEventListener('click', () => {
     // Returning if input value is empty
     if(!taskInput.value || taskInput.value === ' ') {
         return;
@@ -80,6 +92,8 @@ addTaskBtn.addEventListener('click', (e) => {
     task_input_el.type = 'text';
     task_input_el.setAttribute('readonly', 'readonly');
     task_input_el.value = taskInput.value;
+    // Saving task to localstroage
+    saveLocalTasks(taskInput.value);
     task_content_el.appendChild(task_input_el);
     task_el.appendChild(task_content_el);
     const task_action_el = document.createElement('div');
